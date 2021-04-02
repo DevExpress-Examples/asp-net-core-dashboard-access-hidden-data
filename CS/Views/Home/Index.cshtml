@@ -1,0 +1,56 @@
+@{
+    Layout = null;
+}
+<!-- Add the following namespace usages: -->
+@using DevExpress.AspNetCore
+@using DevExpress.DashboardWeb
+@using DevExpress.DashboardAspNetCore
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add bundled resources. -->
+    <link href="~/css/site.min.css" rel="stylesheet" />
+    <script src="~/js/site.min.js"></script>
+
+    <script>
+        function onBeforeRender(sender) {
+            var dashboardControl = sender;
+            var viewerApiExtension = dashboardControl.findExtension('viewer-api');
+
+            if (viewerApiExtension)
+                viewerApiExtension.on('itemClick', onItemClick);
+        }
+
+        function onItemClick(e) {
+            var itemData = e.getData();
+            var axes = itemData.getAxisNames();
+            var measures = itemData.getMeasures();
+            var departmentMeasure = measures.filter(function (m) { return m.dataMember === "Department"; })[0];
+
+            var dataSlice = itemData;
+
+            axes.forEach(function (axis, index) {
+                var axisPoint = e.getAxisPoint(axis);
+                dataSlice = dataSlice.getSlice(axisPoint);
+            });
+
+            var departmentMeasureValue = dataSlice.getMeasureValue(departmentMeasure.id);
+            var departmentValue = departmentMeasureValue.getValue();
+
+            alert("Department: " + departmentValue);
+        }
+    </script>
+</head>
+<body>
+    <!-- Add the Web Dashboard with the "clientDashboardControl1" name to a View, specify its size, and set the Working Mode to Designer. -->
+    <div style="position: absolute; left:0;top:0;right:0;bottom:0;">
+        @(Html.DevExpress().Dashboard("clientDashboardControl1")
+            .Width("100%")
+            .Height("100%")
+            .WorkingMode(WorkingMode.Viewer)
+            .OnBeforeRender("onBeforeRender")
+        )
+    </div>
+</body>
+</html>

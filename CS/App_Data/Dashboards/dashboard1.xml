@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="New Dashboard" />
+  <DataSources>
+    <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1">
+      <DataSource Type="SalesPersonData, AspNetCore31Dashboard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <DataMember>GetSalesData</DataMember>
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="objectDataSource1">
+      <DataItems>
+        <Measure DataMember="Quantity" DefaultId="DataItem2" />
+        <Dimension DataMember="SalesPerson" DefaultId="DataItem3" />
+        <Dimension DataMember="ID" DefaultId="DataItem0" />
+        <Measure DataMember="Department" SummaryType="Min" DefaultId="DataItem1" />
+      </DataItems>
+      <HiddenMeasures>
+        <Measure DefaultId="DataItem1" />
+      </HiddenMeasures>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
