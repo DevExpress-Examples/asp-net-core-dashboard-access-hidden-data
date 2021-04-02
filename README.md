@@ -1,5 +1,6 @@
-**Files to look at**: 
-[Startup.cs](./CS/Views/Home/Index.cshtml)
+*Files to look at*:
+
+* [Startup.cs](./CS/Views/Home/Index.cshtml)
 
 # Dashboard for ASP.NET Core - How to access hidden field values
 
