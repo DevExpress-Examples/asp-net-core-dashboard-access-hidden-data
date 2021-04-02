@@ -14,6 +14,10 @@ Let us consider that you have a `Department` field in your datasource and you do
 
 Then, field values will be accessible in code.
 
+## Documentation
+
+- [Underlying and Displayed Data](https://docs.devexpress.com/Dashboard/18078/web-dashboard/aspnet-web-forms-dashboard-control/obtain-underlying-and-displayed-data)
+
 ## More Examples
 
 - [Web Dashboard - How to get data from a clicked dashboard item](https://github.com/DevExpress-Examples/Web-Dashboard---How-to-get-data-from-a-clicked-dashboard-item)
