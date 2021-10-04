@@ -8,6 +8,7 @@ using DevExpress.AspNetCore;
 using DevExpress.DashboardAspNetCore;
 using DevExpress.DashboardWeb;
 using DevExpress.DashboardCommon;
+using System;
 
 namespace AspNetCore31Dashboard {
     public class Startup {
@@ -24,16 +25,20 @@ namespace AspNetCore31Dashboard {
             // Configures services to use the Web Dashboard Control.
             services
                 .AddDevExpressControls()
-                .AddControllersWithViews()
-                .AddDefaultDashboardController(configurator => {
-                    configurator.SetDashboardStorage(new DashboardFileStorage(FileProvider.GetFileInfo("App_Data/Dashboards").PhysicalPath));
-                    configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
+                .AddControllersWithViews();
 
-                    DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
-                    DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source", typeof(SalesPersonData));
-                    objDataSource.DataMember = "GetSalesData";
-                    dataSourceStorage.RegisterDataSource("objectDataSource", objDataSource.SaveToXml());
-                });
+            services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
+                DashboardConfigurator configurator = new DashboardConfigurator();
+               
+                configurator.SetDashboardStorage(new DashboardFileStorage(FileProvider.GetFileInfo("App_Data/Dashboards").PhysicalPath));
+                configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
+                DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
+                DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source", typeof(SalesPersonData));
+                objDataSource.DataMember = "GetSalesData";
+                dataSourceStorage.RegisterDataSource("objectDataSource", objDataSource.SaveToXml());
+
+                return configurator;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +57,7 @@ namespace AspNetCore31Dashboard {
             app.UseAuthorization();
             app.UseEndpoints(endpoints => {
                 // Maps the dashboard route.
-                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboards");
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboard", "DefaultDashboard");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
