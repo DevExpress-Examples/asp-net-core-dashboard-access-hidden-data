@@ -7,11 +7,7 @@
 
 # Dashboard for ASP.NET Core - How to access hidden field values
 
-This example shows how to access values of invisible field at the API level when the end user clicks the corresponding item.
-
-## Example Structure
-
-The following example shows how to access the data source field's values when these values are not displayed in the dashboard item.
+The following example shows how to access the data source field's values when these values are not displayed in the dashboard item. The control gets data when a user clicks the corresponding item.
 
 For example, you need to redirect the user to the specific web page based on the `Department` field value when the corresponding item is clicked. In this scenario you can use [Underlying and Displayed Data](https://docs.devexpress.com/Dashboard/403003/web-dashboard/dashboard-control-for-javascript-applications-jquery-knockout-etc/obtain-underlying-and-displayed-data) API in the [ViewerApiExtension.itemClick](https://docs.devexpress.com/Dashboard/js-DevExpress.Dashboard.ViewerApiExtensionOptions?p=netframework#js_devexpress_dashboard_viewerapiextensionoptions_onitemclick) event handler. Put the `Department` field to the "HIDDEN MEASURES" section and set its summary type to `Min` or `Max`:
 
