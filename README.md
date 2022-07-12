@@ -5,7 +5,7 @@
 <!-- default badges end -->
 
 
-# Dashboard for ASP.NET Core - How to access hidden field values
+# Dashboard for ASP.NET Core - How to Access Hidden Field Values
 
 The following example shows how to access the data source field's values when these values are not displayed in the dashboard item. The control gets data when a user clicks the corresponding item.
 
