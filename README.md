@@ -20,7 +20,7 @@ var departmentMeasureValue = dataSlice.getMeasureValue(departmentMeasure.id);
 var departmentValue = departmentMeasureValue.getValue();
 ```
 
-## Files to Look At
+## Files to Review
 
 * [Index.cshtml](./CS/Views/Home/Index.cshtml)
 
