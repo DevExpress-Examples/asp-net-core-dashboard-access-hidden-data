@@ -3,7 +3,7 @@
   <Title Text="New Dashboard" />
   <DataSources>
     <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1">
-      <DataSource Type="SalesPersonData, AspNetCore31Dashboard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <DataSource Type="SalesPersonData, AspNetCoreDashboard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <DataMember>GetSalesData</DataMember>
     </ObjectDataSource>
   </DataSources>

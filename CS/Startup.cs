@@ -10,7 +10,7 @@ using DevExpress.DashboardWeb;
 using DevExpress.DashboardCommon;
 using System;
 
-namespace AspNetCore31Dashboard {
+namespace AspNetCoreDashboard {
     public class Startup {
         public Startup(IConfiguration configuration, IWebHostEnvironment hostingEnvironment) {
             Configuration = configuration;
