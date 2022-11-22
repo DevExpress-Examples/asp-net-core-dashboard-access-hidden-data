@@ -30,5 +30,6 @@ var departmentValue = departmentMeasureValue.getValue();
 
 ## More Examples
 
-- [Web Dashboard - How to get data from a clicked dashboard item](https://github.com/DevExpress-Examples/web-dashboard-get-item-data-on-click)
-- [ASP.NET Web Forms Dashboard Control - How to obtain a dashboard item's underlying data for a clicked visual element](https://github.com/DevExpress-Examples/asp-net-web-forms-dashboard-get-underlying-data-for-clicked-item)
+- [Dashboard for ASP.NET Core - How to obtain a dashboard item's client data](https://github.com/DevExpress-Examples/asp-net-core-dashboard-get-client-data)
+- [Dashboard for ASP.NET Core - How to obtain a dashboard item's underlying data for a clicked visual element](https://github.com/DevExpress-Examples/asp-net-core-dashboard-get-underlying-data-for-clicked-item)
+- [Dashboard for ASP.NET Core - How to obtain underlying data for the specified dashboard item](https://github.com/DevExpress-Examples/asp-net-core-dashboard-display-item-underlying-data)
